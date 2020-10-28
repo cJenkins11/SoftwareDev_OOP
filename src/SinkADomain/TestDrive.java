@@ -1,4 +1,4 @@
-package Sink
+package SinkADomain;
 
 import java.util.Arrays;
 

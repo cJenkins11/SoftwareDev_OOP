@@ -15,8 +15,8 @@ public class Player {
 
         for (int i = 0; i < this.playerHand.length; i ++)
         {
-            Card playerCard = new Card();
-            this.playerHand[i] = playerCard.GetValue();
+            //Card playerCard = new Card();
+            //this.playerHand[i] = playerCard.GetValue();
         }
     }
 
@@ -62,14 +62,14 @@ public class Player {
     public void GetNewCard(int originalLength, int[] hand) {
 
         int[] newHand = new int[originalLength + 1];
-        Card newCard = new Card();
+        //Card newCard = new Card();
 
         for (int j = 0; j < originalLength; j ++)
         {
             newHand[j] = hand[j];
         }
 
-        newHand[originalLength] = newCard.GetValue();
+        //newHand[originalLength] = newCard.GetValue();
 
         this.playerHand = newHand;
     }

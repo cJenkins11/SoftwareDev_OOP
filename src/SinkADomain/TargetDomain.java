@@ -1,4 +1,4 @@
-package Sink
+package SinkADomain;
 
 /**
  * @author: Callum Jenkins
@@ -23,7 +23,7 @@ public class TargetDomain extends GameGrid{
 
     }*/
     public TargetDomain() {
-        setLocationCoords();
+        //setLocationCoords();
     }
 
     /**

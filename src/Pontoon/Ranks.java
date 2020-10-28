@@ -14,4 +14,7 @@ public enum Ranks {
     QUEEN(10),
     KING(10),
     ACE(11);
+
+    Ranks(int i) {
+    }
 }

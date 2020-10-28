@@ -1,6 +1,7 @@
 package Tutorials_Week6;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -14,6 +15,7 @@ public class Unit {
     
     private String unitNumber;
     private String unitTitle;
+    //private ArrayList<Student> classlist = new ArrayList<Student>();
     private Student classlist[] = new Student[10];
     private String result[] = new String[10];
     
@@ -108,12 +110,7 @@ public class Unit {
                 {
                     classlist[j] = null;
                     System.out.println("Student removed");
-                    break;
-                }
-                else
-                {
-                    System.out.println("No record of student: " + searchTerm);
-                    break;
+                    return;
                 }
             }
         }

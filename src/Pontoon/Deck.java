@@ -9,7 +9,7 @@ package Pontoon;
 
 public class Deck {
 
-    private Card cards[];
+    private Card[] cards;
 
     public Deck() {
         this.cards = new Card[52];
@@ -23,6 +23,10 @@ public class Deck {
                 cardCount++;
             }
         }
+    }
+
+    public Card[] getCards() {
+        return this.cards;
     }
 
 

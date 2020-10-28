@@ -1,7 +1,5 @@
 package Pontoon;
 
-import java.util.EnumMap;
-
 public class Card {
 
     private Suits suit;
