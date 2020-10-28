@@ -1,4 +1,5 @@
-package Clock_GUI;/*
+package Clock_GUI;
+/*
 Callum Jenkins
 Clock
 22/09/2020 of 09, 2020
