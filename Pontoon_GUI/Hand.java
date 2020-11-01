@@ -16,9 +16,13 @@ import Pontoon_GUI.Card.Rank;
 
 public class Hand {
 
-    //Node used to deal with elements children eg. cardBacks, values
+    /**
+     * Observable list for event listeners
+     * Node used to deal with elements' children eg.Card has (cardBacks, values)
+     */
     private ObservableList<Node> cards;
     private SimpleIntegerProperty value = new SimpleIntegerProperty(0);
+    //private Integer bet;
     private int aces = 0;
 
     public Hand(ObservableList<Node> cards) {
@@ -62,4 +66,8 @@ public class Hand {
     public SimpleIntegerProperty getValue() {
         return value;
     }
+
+    /*public void setBet(Integer bet) {
+        this.bet = bet;
+    }*/
 }
