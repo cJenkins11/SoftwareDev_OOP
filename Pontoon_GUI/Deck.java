@@ -28,10 +28,8 @@ public class Deck {
      */
     public final void reloadDeck() {
         int i = 0;
-        for (Suit suit : Suit.values())
-        {
-            for (Rank rank : Rank.values())
-            {
+        for (Suit suit : Suit.values()) {
+            for (Rank rank : Rank.values()) {
                 cards[i++] = new Card(suit, rank);
             }
         }

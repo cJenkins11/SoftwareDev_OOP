@@ -21,12 +21,13 @@ public class Hand {
      * Node used to deal with elements' children eg.Card has (cardBacks, values)
      */
     private ObservableList<Node> cards;
+    //private SimpleIntegerProperty numberCards = new SimpleIntegerProperty();
     private SimpleIntegerProperty value = new SimpleIntegerProperty(0);
-    //private Integer bet;
     private int aces = 0;
 
     public Hand(ObservableList<Node> cards) {
         this.cards = cards;
+        //this.numberCards.setValue(this.cards.size());
     }
 
     /**
@@ -64,8 +65,10 @@ public class Hand {
      * @return value - Integer value of hand total
      */
     public SimpleIntegerProperty getValue() {
-        return value;
+        return this.value;
     }
+
+    //public SimpleIntegerProperty getNumberCards() { return this.numberCards;}
 
     /*public void setBet(Integer bet) {
         this.bet = bet;

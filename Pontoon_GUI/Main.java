@@ -16,6 +16,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
 import javafx.scene.control.Spinner;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -40,6 +41,41 @@ public class Main extends Application {
     private HBox houseCards = new HBox(20);
     private HBox playerCards = new HBox(20);
 
+
+    private Parent createMenu() {
+        Pane base = new Pane();
+        base.setPrefSize(850, 600);
+        Region background = new Region();
+        background.setPrefSize(850, 600);
+        background.setStyle("-fx-background-color: rgba(255,255,255,1)");
+
+        VBox menuBox = new VBox(10);
+        HBox startingCashBox = new HBox(5);
+
+        Text title = new Text("PONTOON");
+        title.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 28));
+
+        Button start = new Button("START");
+
+        Text startingCashText = new Text("BUY IN: ");
+        Slider startingCash = new Slider(0, 10000, 50);
+        startingCash.setShowTickMarks(true);
+        startingCash.setShowTickLabels(true);
+        startingCash.setMajorTickUnit(1000);
+        startingCash.setBlockIncrement(100);
+        startingCash.snapToTicksProperty();
+
+        startingCashBox.getChildren().addAll(startingCashText, startingCash);
+
+        Button exit = new Button("EXIT");
+
+        menuBox.getChildren().addAll(title, startingCashBox, start, exit);
+
+        base.getChildren().addAll(menuBox);
+
+        return base;
+    }
+
     /**
      * Creates game window and function buttons.
      * @return base - Main window that holds game content
@@ -49,7 +85,7 @@ public class Main extends Application {
         player = new Player(playerCards, startingCash);
 
         Pane base = new Pane();
-        base.setPrefSize(800, 600);
+        base.setPrefSize(850, 600);
         Region background = new Region();
         background.setPrefSize(850, 600);
         background.setStyle("-fx-background-color: rgba(0,0,0,1)");
@@ -60,8 +96,8 @@ public class Main extends Application {
         Rectangle leftBackground = new Rectangle(550, 560);
         leftBackground.setFill(Color.GREEN);
 
-        Rectangle rightBackground = new Rectangle(295, 560);
-        rightBackground.setFill(Color.ORANGE);
+        Rectangle rightBackground = new Rectangle(285, 560);
+        rightBackground.setFill(Color.LIGHTCYAN);
 
         //LEFT SIDE (GAME TABLE)
 
@@ -82,7 +118,7 @@ public class Main extends Application {
 
         Text wagerText = new Text("Wager: £");
         wagerText.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 20));
-        final Spinner<Integer> wager = new Spinner<>(50, 1000, 50, 50);
+        final Spinner<Integer> wager = new Spinner<>(0, 1000, 50, 50);
 
         Text cashText = new Text("Cash: £");
         cashText.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 20));
@@ -117,12 +153,21 @@ public class Main extends Application {
          * CHECK HANDS. CHANGE LISTENER: (PROPERTY THAT CHANGED*, PREVIOUS VALUE, NEW VALUE)
          * *THE VALUE OF THE HANDS
          */
+        //player goes bust
         player.getHand().getValue().addListener((obs, oldValue, newValue) -> {
             if (newValue.intValue() >= 21) {
                 stopGame();
             }
         });
 
+        /*//5 card trick
+        player.getHand().getNumberCards().addListener((obs, oldValue, newValue) -> {
+            if (newValue.intValue() == 5){
+                stopGame();
+            }
+        });*/
+
+        //house goes bust
         house.getValue().addListener((obs, oldValue, newValue) -> {
             if (newValue.intValue() >= 21) {
                 stopGame();
@@ -130,7 +175,9 @@ public class Main extends Application {
         });
 
         player.getCash().addListener((obs, oldValue, newValue) -> {
-
+            if (newValue.intValue() <= 0) {
+                finishGame();
+            }
         });
 
         /**
@@ -150,10 +197,10 @@ public class Main extends Application {
         });
 
         /**
-         * When player sticks, house draws to at least 17
+         * When player sticks, house draws to try beat the player
          */
         stick.setOnAction(event -> {
-            while (house.getValue().get() < 17) {
+            while (house.getValue().get() < player.getHand().getValue().get()) {
                 house.takeCard(deck.drawCard());
             }
             stopGame();
@@ -197,11 +244,18 @@ public class Main extends Application {
             winner = "PLAYER";
         }
 
+        player.setBet(0);
         alert.setText(winner + " wins!");
+    }
+
+
+    private void finishGame() {
+
     }
 
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setScene(new Scene(createContent()));
+        //primaryStage.setScene(new Scene(createMenu()));
         primaryStage.setWidth(865);
         primaryStage.setHeight(600);
         primaryStage.setResizable(false);

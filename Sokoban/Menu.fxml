@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-width: 5px;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sokoban.MenuController">
+   <children>
+      <VBox alignment="CENTER" layoutX="197.0" layoutY="80.0" prefHeight="241.0" prefWidth="206.0" spacing="25.0">
+         <children>
+            <Label text="SOKOBAN">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" text="PLAY" onAction="#selectLevel"/>
+            <Button mnemonicParsing="false" text="QUIT" onAction="#quit"/>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
