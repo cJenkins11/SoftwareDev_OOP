@@ -39,6 +39,9 @@ public class LevelSelectController {
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 
         level = new Level(b.getText());
+        /*ReadFile filereader = new ReadFile();
+        filereader.run("1");
+        System.out.println(filereader.toString());*/
 
         hbox = new HBox();
         vbox = new VBox();
