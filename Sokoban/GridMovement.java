@@ -1,11 +1,11 @@
 package Sokoban;
 /**
 @author: Callum Jenkins
-09/01/2021
+10/01/2021
 
-Class: Sokoban
+Class: GridMovement
 @version 
 */
 
-public class Sokoban {
+public class GridMovement {
 }

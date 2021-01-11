@@ -1,0 +1,64 @@
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.HashMap?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import SokoOLD.GameGridPane?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            prefHeight="800" prefWidth="800"
+            stylesheets="@css/arrows.css"
+            style="-fx-border-color: black; -fx-border-width: 5px;"
+>
+    <top>
+        <HBox>
+            &lt;!&ndash;<Button id="fileButton" text="Browse..."/>&ndash;&gt;
+            <TextField id="levelTextField" HBox.hgrow="ALWAYS" promptText="Select level 1-5"/>
+            <Button id="startButton" text="Start"/>
+        </HBox>
+    </top>
+    <center>
+
+            <GameGridPane id="gridPane" style = "-fx-background-color: black"/>
+
+    </center>
+
+    <bottom>
+        <VBox style="-fx-border-color: black; -fx-border-width: 5px">
+
+
+
+                <HBox style="-fx-border-color: black; -fx-border-width: 5px">
+                        <Button id = "LEFT" text = "LEFT"> </Button>
+                        <Button id = "UP" text = "UP"> </Button>
+                        <Button id = "DOWN" text = "DOWN"> </Button>
+                        <Button id = "RIGHT" text = "RIGHT"> </Button>
+                </HBox>
+        </VBox>
+
+            &lt;!&ndash;<HBox style="-fx-border-color: black; -fx-border-width: 5px">
+                <Button id = "UNDO" text = "UNDO"> </Button>
+
+                <Button id = "REDO" text = "REDO"> </Button>
+            </HBox>&ndash;&gt;
+            &lt;!&ndash;<HBox>
+                <TextField id="inputTextField" HBox.hgrow="ALWAYS" promptText="one line of input"/>
+                <Button id="inputButton" text="doCommand" disable="true"/>
+            </HBox>&ndash;&gt;
+            &lt;!&ndash;<Text id="messageText" VBox.vgrow="ALWAYS">
+                <font>
+                    <Font name="Courier"/>
+                </font>
+            </Text>&ndash;&gt;
+
+    </bottom>
+</BorderPane>-->
